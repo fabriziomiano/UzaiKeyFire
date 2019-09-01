@@ -1,11 +1,11 @@
 # PDF analysis
-A tool to run a simple analysis of a PDF written in English.
+A tool to run a text analysis on PDF files written in English.
 
 # What is it?
-It's a simple tool to extract keywords and Part-Of-Speech distribution 
-in a given PDF. It employs
-[spaCy](https://github.com/explosion/spaCy) English models 
-to extract named-entities.
+It's a simple tool to extract keywords and Part-Of-Speech distributions
+from a given PDF. It employs a
+[spaCy](https://github.com/explosion/spaCy) English model
+to perform tokenization and named-entities extraction.
 It's pretty much a word counter that employs 
 standard NLP pre-processing, plus the NER part performed by spaCy. 
 Additionally it produces a word cloud image. 
@@ -17,10 +17,10 @@ It requires Python3+ and [`virtualenv`](https://github.com/pypa/virtualenv).
 With these two installed, simply clone the repo and run `source install.sh`
 
 #### Requirements
-The file `requirements.txt` contains all the needed python packages and spaCy models.
+The file `requirements.txt` contains all the needed python packages.
 
 ##### Ubuntu 18.04 
-It should come with Python3+ installed, so just give 
+Ubuntu should come with Python3+ installed, so just give 
 `source install.sh` and Bob's your uncle.
 
 ##### macOS
@@ -61,19 +61,20 @@ Once the virtual environment has been created, and activated, simply run
 ```
 python main.py --filepath /path/to/PDF_file
 ```
-This will assume by default a maximum number of words to plot `nwords = 20`.
-To modify the default setting, simply specify your preference by add the `--nwords` flag, e.g.
+This will assume by default a maximum number of words to plot `nmaxwords = 20`.
+To modify this setting, simply specify your preference by add the `--nwords` flag, e.g.
 ```
 python main.py --filepath /path/to/PDF_file --nmaxwords 25
 ```
 
 ### Considerations 
-The tool is designed to run only on searchable PDF, namely PDF in which the text can be selected and copied. 
+The tool is designed to run only on searchable PDF, namely PDF files
+in which the text can be selected and copied. 
 That's it!
 
 ## Results 
 Here there are the sample results obtained by running on a PDF 
-of some proceedings I wrote a long time ago taken from [here](https://pos.sissa.it/282/856/pdf). 
+of some proceedings I wrote a long time ago, taken from [here](https://pos.sissa.it/282/856/pdf). 
 
 #### Top 20 keywords
 ![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/kwords_count.png)
