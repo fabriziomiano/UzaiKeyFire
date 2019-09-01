@@ -85,9 +85,9 @@ def normalize_data(data):
         'verbs': [('work', 2)],
         'nouns': [('painter', 1)],
         'entities': [
-            (('the Ministry of Justice', 'ORG'), 1),
-            (('Rome', 'GPE'), 1),
-            (('10/09/2012', 'DATE'), 1)
+            ('the Ministry of Justice', 1),
+            ('Rome', 1),
+            ('10/09/2012', 1)
         ]
     }
 
@@ -96,10 +96,10 @@ def normalize_data(data):
         'nouns': [('painter', 100.0)],
         'adjectives': [],
         'entities': [
-            (('the Ministry of Justice', 'ORG'), 25.0),
-            (('Italy', 'GPE'), 25.0),
-            (('Rome', 'GPE'), 25.0),
-            (('10/09/2012', 'DATE'), 25.0)
+            ('the Ministry of Justice', 25.0),
+            ('Italy', 'GPE', 25.0),
+            ('Rome', 'GPE', 25.0),
+            ('10/09/2012', 25.0)
         ]
     }
     """
