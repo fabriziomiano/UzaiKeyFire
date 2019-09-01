@@ -1,8 +1,8 @@
-import logging
 import os
+import logging
+import seaborn as sns
 from modules.misc import get_logger
 from matplotlib import pyplot as plt
-import seaborn as sns
 LOGGER = get_logger(__name__)
 LOGGER.setLevel(logging.INFO)
 
@@ -84,3 +84,4 @@ def plot_kwords(kwords_data, out_dir_name, n_max_words):
         kwords_plot_fp,
         title="Top {} Keywords".format(n_max_words)
     )
+
