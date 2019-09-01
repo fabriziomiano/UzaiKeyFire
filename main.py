@@ -7,11 +7,11 @@ import logging
 import spacy
 from io import BytesIO
 from classes.Text import TextPreprocessor
-from modules.data import kwords_count, get_data, normalize_data
+from modules.data import get_data, normalize_data, kwords_count
 from modules.plot import plot_pos, plot_kwords
 from modules.misc import (
     usage, get_logger, extract_text, get_project_name,
-    create_nonexistent_dir
+    create_nonexistent_dir, save_wordcloud
 )
 
 
@@ -60,6 +60,7 @@ def main(args, logger):
         plot_pos(norm_data["entity_types"], out_dir_name, n_max_words, type_pos="entity types")
     else:
         logger.warning("No entities found in the provided PDF")
+    save_wordcloud(corpus, out_dir_name)
     tp = TextPreprocessor(corpus)
     cleaned_text = tp.preprocess()
     kwords_data = kwords_count(cleaned_text)
