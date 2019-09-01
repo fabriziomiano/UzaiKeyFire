@@ -17,8 +17,8 @@ from modules.misc import (
 
 def main(args, logger):
     try:
-        n_max_words = args.nwords
-        file_path = args.filename
+        n_max_words = args.nmaxwords
+        file_path = args.filepath
         with open(file_path, 'rb') as file_in:
             pdf_byte_content = BytesIO(file_in.read())
     except OSError:
@@ -83,20 +83,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=PARSER_DESCRIPTION)
     argparse.ArgumentParser()
     parser.add_argument(
-        '-f', '--filename',
+        '-f', '--filepath',
         type=str,
         metavar='',
         required=True,
         help="Specify the file path of the PDF to analyze"
     )
     parser.add_argument(
-        '-nw', '--nwords',
+        '-nmw', '--nmaxwords',
         type=int,
         metavar='',
         required=False,
-        default=15,
+        default=20,
         help=("Specify the max number of words to "
-              "plot (20 max recommended), default 15")
+              "plot (20 max recommended), default 20")
     )
     ARGS = parser.parse_args()
     LOGGER = get_logger(__name__)
