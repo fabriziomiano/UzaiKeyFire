@@ -93,11 +93,13 @@ by running the tool on my English CV
 #### Top 20 entities
 ![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/entities.png)
 
-#### Word cloud 
+#### Top 20 entity types
+![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/entity%20types.png)
 
+#### Word cloud
 ![alt text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/wordcloud.png)
 ## Acknowledgements
 Thanks to the people at [spaCy](https://github.com/explosion/spaCy)
 for the NE part, and to the guys who made 
-[word_cloud](https://amueller.github.io/word_cloud) for the awesome word-cloud images
+[word cloud](https://amueller.github.io/word_cloud) for the awesome word-cloud images
 that can be produced.
