@@ -2,16 +2,16 @@
 This script takes a searchable PDF file as input
 and produces a plot of the word frequency
 """
-import os
 import argparse
 import logging
 import spacy
 from io import BytesIO
 from classes.Text import TextPreprocessor
-from utils.misc import (
-    usage, get_logger, extract_text, kwords_count,
-    get_project_name, save_barplot, create_nonexistent_dir,
-    get_adverbs, adv_stats
+from modules.data import kwords_count, get_data, normalize_data
+from modules.plot import plot_pos, plot_kwords
+from modules.misc import (
+    usage, get_logger, extract_text, get_project_name,
+    create_nonexistent_dir
 )
 
 
@@ -33,42 +33,38 @@ def main(args, logger):
     out_dir_name = get_project_name(file_path)
     create_nonexistent_dir(out_dir_name)
     corpus = extract_text(pdf_byte_content)
-    nlp = spacy.load("en_core_web_sm")
+    logger.info("Loading spaCy English model. This may take some time...")
+    nlp = spacy.load("en_core_web_md")
+    logger.info("Model loaded")
     doc = nlp(corpus)
-    adverbs = get_adverbs(doc)
-    adverbs_data = adv_stats(adverbs)
-    if len(adverbs_data) != 0:
-        if n_max_words < len(adverbs_data):
-            adv_plot_title = "Top {} Adverbs out of {} different ones".format(
-                n_max_words, len(adverbs_data))
-        else:
-            adv_plot_title = "The {} different adverbs found".format(
-                len(adverbs_data)
-            )
-        adverbs_labels = ["Adverb", "% of occurrence"]
-        adverbs_plot_fp = os.path.join(out_dir_name, "adv_stats.png")
-        save_barplot(
-            adverbs_data,
-            adverbs_labels,
-            n_max_words,
-            adverbs_plot_fp,
-            title=adv_plot_title
-        )
+    doc_data = get_data(nlp, doc)
+    norm_data = normalize_data(doc_data)
+    if len(norm_data["adverbs"]) != 0:
+        plot_pos(norm_data["adverbs"], out_dir_name, n_max_words, type_pos="adverbs")
     else:
         logger.warning("No adverbs found in the provided PDF")
+    if len(norm_data["verbs"]) != 0:
+        plot_pos(norm_data["verbs"], out_dir_name, n_max_words, type_pos="verbs")
+    else:
+        logger.warning("No verbs found in the provided PDF")
+    if len(norm_data["nouns"]) != 0:
+        plot_pos(norm_data["nouns"], out_dir_name, n_max_words, type_pos="nouns")
+    else:
+        logger.warning("No nouns found in the provided PDF")
+    if len(norm_data["adjectives"]) != 0:
+        plot_pos(norm_data["adjectives"], out_dir_name, n_max_words, type_pos="adjectives")
+    else:
+        logger.warning("No adjectives found in the provided PDF")
+    if len(norm_data["entities"]) != 0:
+        plot_pos(norm_data["entities"], out_dir_name, n_max_words, type_pos="entities")
+        plot_pos(norm_data["entity_types"], out_dir_name, n_max_words, type_pos="entity types")
+    else:
+        logger.warning("No entities found in the provided PDF")
     tp = TextPreprocessor(corpus)
     cleaned_text = tp.preprocess()
     kwords_data = kwords_count(cleaned_text)
     if len(kwords_data) != 0:
-        kwords_labels = ["Keyword", "Counts"]
-        kwords_plot_fp = os.path.join(out_dir_name, "kwords_count.png")
-        save_barplot(
-            kwords_data,
-            kwords_labels,
-            n_max_words,
-            kwords_plot_fp,
-            title="Top {} Keywords".format(n_max_words)
-        )
+        plot_kwords(kwords_data, out_dir_name, n_max_words)
     else:
         logger.warning("No keywords found in the provided PDF")
     status = {
