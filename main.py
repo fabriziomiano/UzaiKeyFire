@@ -40,24 +40,24 @@ def main(args, logger):
     doc_data = get_data(nlp, doc)
     norm_data = normalize_data(doc_data)
     if len(norm_data["adverbs"]) != 0:
-        plot_pos(norm_data["adverbs"], out_dir_name, n_max_words, type_pos="adverbs")
+        plot_pos(norm_data["adverbs"], out_dir_name, n_max_words, type_pos="Adverbs")
     else:
         logger.warning("No adverbs found in the provided PDF")
     if len(norm_data["verbs"]) != 0:
-        plot_pos(norm_data["verbs"], out_dir_name, n_max_words, type_pos="verbs")
+        plot_pos(norm_data["verbs"], out_dir_name, n_max_words, type_pos="Verbs")
     else:
         logger.warning("No verbs found in the provided PDF")
     if len(norm_data["nouns"]) != 0:
-        plot_pos(norm_data["nouns"], out_dir_name, n_max_words, type_pos="nouns")
+        plot_pos(norm_data["nouns"], out_dir_name, n_max_words, type_pos="Nouns")
     else:
         logger.warning("No nouns found in the provided PDF")
     if len(norm_data["adjectives"]) != 0:
-        plot_pos(norm_data["adjectives"], out_dir_name, n_max_words, type_pos="adjectives")
+        plot_pos(norm_data["adjectives"], out_dir_name, n_max_words, type_pos="Adjectives")
     else:
         logger.warning("No adjectives found in the provided PDF")
     if len(norm_data["entities"]) != 0:
-        plot_pos(norm_data["entities"], out_dir_name, n_max_words, type_pos="entities")
-        plot_pos(norm_data["entity_types"], out_dir_name, n_max_words, type_pos="entity types")
+        plot_pos(norm_data["entities"], out_dir_name, n_max_words, type_pos="Entities")
+        plot_pos(norm_data["entity_types"], out_dir_name, n_max_words, type_pos="Entity Types")
     else:
         logger.warning("No entities found in the provided PDF")
     save_wordcloud(corpus, out_dir_name)
