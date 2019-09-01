@@ -38,15 +38,12 @@ def get_data(nlp, doc):
     :return: dict
     """
     LOGGER.info("Getting data from doc")
-    nouns = []
-    adverbs = []
-    verbs = []
-    adjectives = []
-    entities = []
-    entity_types = []
+    nouns, adjectives = [], []
+    adverbs, verbs = [], []
+    entities, entity_types = [], []
     for sent in doc.sents:
         for token in sent:
-            if not token.is_oov:
+            if not token.is_oov and len(token.text) > 1:
                 if token.pos_ == "ADV":
                     adverbs.append(token.lower_)
                 if token.pos_ == "VERB" and not token.is_stop:
