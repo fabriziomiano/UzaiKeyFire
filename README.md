@@ -72,8 +72,8 @@ The tool is designed to run only on searchable PDF, namely PDF in which the text
 That's it!
 
 ## Results 
-Here there are two images of the plots that are produced 
-by running the tool on my English CV
+Here there are the sample results obtained by running on a PDF 
+of some proceedings I wrote a long time ago taken from [here](https://pos.sissa.it/282/856/pdf). 
 
 #### Top 20 keywords
 ![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/kwords_count.png)
