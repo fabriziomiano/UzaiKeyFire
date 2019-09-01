@@ -1,5 +1,8 @@
-# PDF analysis
-A tool to run a text analysis on PDF files written in English.
+# Vocabulary analyzer
+Are you always using the same words in
+your scientific papers?
+This is a tool to run a text analysis on 
+PDF files containing an English corpus.
 
 # What is it?
 It's a simple tool to extract keywords and Part-Of-Speech distributions
