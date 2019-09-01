@@ -54,8 +54,9 @@ def get_data(nlp, doc):
                     nouns.append(token.lower_)
         subdoc = nlp(sent.text)
         for ent in subdoc.ents:
-            entities.append(ent.text)
-            entity_types.append(ent.label_)
+            if len(ent.text) > 2:
+                entities.append(ent.text)
+                entity_types.append(ent.label_)
     adverbs_data = Counter(adverbs).most_common()
     verbs_data = Counter(verbs).most_common()
     nouns_data = Counter(nouns).most_common()
