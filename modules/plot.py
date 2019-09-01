@@ -1,7 +1,7 @@
 import os
 import logging
 import seaborn as sns
-from modules.misc import get_logger
+from modules.misc import get_logger, ENTITY_ABBRV_MAP
 from matplotlib import pyplot as plt
 LOGGER = get_logger(__name__)
 LOGGER.setLevel(logging.INFO)
@@ -30,7 +30,24 @@ def save_barplot(data, labels, n_max, path, title):
     plt.xticks(fontsize=16)
     plt.xlabel(labels[1], fontsize=18)
     plt.ylabel(labels[0], fontsize=18, labelpad=60, rotation=90)
+    if labels[0] == "Entity Types":
+        write_entitytypes_legend(data)
     plt.savefig(path)
+
+
+def write_entitytypes_legend(data):
+    """
+    Write the entity type meaning by using ENTITY_ABBRV_MAP,
+    depending on which entities are present in the data.
+    :param data:
+    :return: #TODO add definition of return
+    """
+    LOGGER.info("Writing legend on Entity Types plot")
+    legend_text = ""
+    for k, v in ENTITY_ABBRV_MAP.items():
+        if k in data:
+            legend_text += "{}: {}\\n".format(k, v)
+    plt.text(0, 0, legend_text)
 
 
 def plot_pos(data, out_dir_name, n_max_words, type_pos):
@@ -75,7 +92,7 @@ def plot_kwords(kwords_data, out_dir_name, n_max_words):
     LOGGER.info(
         "Making plot for the top {} keywords".format(n_max_words)
     )
-    kwords_labels = ["Keyword", "Counts"]
+    kwords_labels = ["Keywords", "Counts"]
     kwords_plot_fp = os.path.join(out_dir_name, "kwords_count.png")
     save_barplot(
         kwords_data,
