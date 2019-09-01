@@ -1,6 +1,7 @@
 import os
 import errno
 import logging
+from wordcloud import WordCloud
 from classes.Pdf import PdfHandler
 
 
@@ -33,6 +34,8 @@ def usage():
     :return: None
     """
     message = (
+        "Please run the script providing the PDF file path and "
+        "maximum number of elements to plot\n"
         "Es.: \n\t"
         "python run_anal.py --filename <path/to/file.pdf> --nwords <num>"
     )
@@ -81,3 +84,24 @@ def create_nonexistent_dir(path, exc_raise=False):
                 "Could not create directory with path: {}".format(path))
             if exc_raise:
                 raise
+
+
+def save_wordcloud(corpus, out_dir_name):
+    """
+    Save wordcloud basic image
+    :param corpus: str: the string of the
+        document content
+    :param out_dir_name: str: output directory
+    :return: None
+    """
+    LOGGER.info("Making Word Cloud image")
+    wc = WordCloud(
+        width=800,
+        height=600,
+        background_color="black",
+        contour_width=3,
+        contour_color="steelblue"
+    )
+    wc.generate(corpus)
+    output_fp = os.path.join(out_dir_name, "wordcloud.png")
+    wc.to_file(output_fp)
