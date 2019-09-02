@@ -94,9 +94,9 @@ if __name__ == "__main__":
         type=int,
         metavar='',
         required=False,
-        default=20,
+        default=15,
         help=("Specify the max number of words to "
-              "plot (20 max recommended), default 20")
+              "plot (15 max recommended), default 20")
     )
     ARGS = parser.parse_args()
     LOGGER = get_logger(__name__)
