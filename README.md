@@ -83,22 +83,22 @@ of some proceedings I wrote a long time ago, taken from [here](https://pos.sissa
 ![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/kwords_count.png)
 
 #### Top 20 nouns
-![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/nouns.png)
+![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/Nouns.png)
 
 #### Top 20 adjectives
-![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/adjectives.png)
+![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/Adjectives.png)
 
 #### Top 20 adverbs
-![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/adverbs.png)
+![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/Adverbs.png)
 
 #### Top 20 verbs
-![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/verbs.png)
+![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/Verbs.png)
 
 #### Top 20 entities
-![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/entities.png)
+![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/Entities.png)
 
 #### Top 20 entity types
-![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/entity%20types.png)
+![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/Entity%20types.png)
 
 #### Word cloud
 ![alt text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/wordcloud.png)
