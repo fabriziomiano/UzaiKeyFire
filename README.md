@@ -98,7 +98,7 @@ of some proceedings I wrote a long time ago, taken from [here](https://pos.sissa
 ![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/Entities.png)
 
 #### Top 20 entity types
-![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/Entity%20types.png)
+![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/Entity%20Types.png)
 
 #### Word cloud
 ![alt text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/wordcloud.png)
