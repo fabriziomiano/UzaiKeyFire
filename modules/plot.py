@@ -25,29 +25,34 @@ def save_barplot(data, labels, n_max, path, title):
         list(y)[:n_max],
         list(x)[:n_max],
         palette="Blues_d")
-    ax.set_title(title)
-    plt.xticks(fontsize=16)
-    plt.xticks(fontsize=16)
+    ax.set_title(title, fontsize=18)
+    plt.xticks(fontsize=18)
+    plt.xticks(fontsize=18)
     plt.xlabel(labels[1], fontsize=18)
-    plt.ylabel(labels[0], fontsize=18, labelpad=60, rotation=90)
+    plt.ylabel(labels[0], fontsize=18, labelpad=20, rotation=90)
     if labels[0] == "Entity Types":
-        write_entitytypes_legend(data)
+        write_entitytypes_legend(data, ax)
     plt.savefig(path)
 
 
-def write_entitytypes_legend(data):
+def write_entitytypes_legend(data, ax):
     """
     Write the entity type meaning by using ENTITY_ABBRV_MAP,
     depending on which entities are present in the data.
     :param data:
-    :return: #TODO add definition of return
+    :param ax: plt axes object
+    :return: None
     """
     LOGGER.info("Writing legend on Entity Types plot")
     legend_text = ""
     for k, v in ENTITY_ABBRV_MAP.items():
-        if k in data:
-            legend_text += "{}: {}\\n".format(k, v)
-    plt.text(0, 0, legend_text)
+        for ent_type in data:
+            if k in ent_type[0]:
+                legend_text += "{}: {}\n".format(k, v)
+    plt.text(
+        0.65, 0.05, legend_text, fontsize=16,
+        transform=ax.transAxes
+    )
 
 
 def plot_pos(data, out_dir_name, n_max_words, type_pos):
