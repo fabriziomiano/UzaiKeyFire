@@ -106,4 +106,3 @@ def plot_kwords(kwords_data, out_dir_name, n_max_words):
         kwords_plot_fp,
         title="Top {} Keywords".format(n_max_words)
     )
-
