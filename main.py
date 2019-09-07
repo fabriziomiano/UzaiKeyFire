@@ -33,7 +33,7 @@ def main(args, logger):
     out_dir_name = get_project_name(file_path)
     create_nonexistent_dir(out_dir_name)
     corpus = extract_text(pdf_byte_content)
-    logger.info("Loading spaCy English model. This may take some time...")
+    logger.info("Loading spaCy English model. This may take up to 1 minute")
     nlp = spacy.load("en_core_web_md")
     logger.info("Model loaded")
     doc = nlp(corpus)
