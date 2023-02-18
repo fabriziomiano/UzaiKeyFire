@@ -1,6 +1,10 @@
 import logging
 from collections import Counter
+
+import pandas as pd
+
 from modules.misc import get_logger
+
 LOGGER = get_logger(__name__)
 LOGGER.setLevel(logging.INFO)
 

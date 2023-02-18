@@ -76,8 +76,7 @@ in which the text can be selected and copied.
 That's it!
 
 ## Results 
-Here there are the sample results obtained by running on a PDF 
-of some proceedings I wrote a long time ago, taken from [here](https://pos.sissa.it/282/856/pdf). 
+Here there are the sample results obtained by running on my CV, taken from [here](https://https://github.com/fabriziomiano/tex-cv/raw/master/cv-en.pdf). 
 
 #### Top 20 keywords
 ![alt_text](https://raw.githubusercontent.com/fabriziomiano/UzaiKeyFire/master/sample/kwords_count.png)

@@ -1,7 +1,9 @@
-import unicodedata
 import string
-from nltk.stem.snowball import SnowballStemmer
+import unicodedata
+
 from nltk.corpus import stopwords
+from nltk.stem.snowball import SnowballStemmer
+
 STOPWORDS = set(stopwords.words('english'))
 STEMMER = SnowballStemmer("english")
 

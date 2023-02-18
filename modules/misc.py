@@ -1,8 +1,11 @@
-import os
 import errno
 import logging
+import os
+
 from wordcloud import WordCloud
+
 from classes.Pdf import PdfHandler
+
 ENTITY_ABBRV_MAP = {
     "CARDINAL": "Numerals not under another type",
     "DATE": "Absolute or relative dates",

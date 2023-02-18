@@ -4,15 +4,17 @@ and produces a plot of the word frequency
 """
 import argparse
 import logging
-import spacy
 from io import BytesIO
+
+import spacy
+
 from classes.Text import TextPreprocessor
-from modules.data import get_data, normalize_data, kwords_count
-from modules.plot import plot_pos, plot_kwords
+from modules.data import get_data, kwords_count, normalize_data
 from modules.misc import (
-    usage, get_logger, extract_text, get_project_name,
-    create_nonexistent_dir, save_wordcloud
+    create_nonexistent_dir, extract_text, get_logger,
+    get_project_name, save_wordcloud, usage
 )
+from modules.plot import plot_kwords, plot_pos
 
 
 def main(args, logger):
@@ -99,7 +101,7 @@ if __name__ == "__main__":
               "plot (15 max recommended), default 20")
     )
     ARGS = parser.parse_args()
-    LOGGER = get_logger(__name__)
+    LOGGER = get_logger("main")
     LOGGER.setLevel(logging.INFO)
     results = main(ARGS, LOGGER)
     if results["status"] == "OK":

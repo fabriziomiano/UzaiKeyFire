@@ -1,8 +1,11 @@
-import os
 import logging
+import os
+import pandas as pd
 import seaborn as sns
-from modules.misc import get_logger, ENTITY_ABBRV_MAP
 from matplotlib import pyplot as plt
+
+from modules.misc import ENTITY_ABBRV_MAP, get_logger
+
 LOGGER = get_logger(__name__)
 LOGGER.setLevel(logging.INFO)
 
@@ -18,18 +21,15 @@ def save_barplot(data, labels, n_max, path, title):
     :param title: str
     :return: None
     """
-    x, y = zip(*data)
+    df = pd.DataFrame(data, columns=["x", "y"])[:n_max]
     sns.set(style="whitegrid")
     plt.figure(figsize=(n_max, n_max / 2))
-    ax = sns.barplot(
-        list(y)[:n_max],
-        list(x)[:n_max],
-        palette="Blues_d")
-    ax.set_title(title, fontsize=18)
-    plt.xticks(fontsize=18)
-    plt.xticks(fontsize=18)
-    plt.xlabel(labels[1], fontsize=18)
-    plt.ylabel(labels[0], fontsize=18, labelpad=20, rotation=90)
+    ax = sns.barplot(data=df, x="x", y="y", palette="Blues_d")
+    ax.set_title(title)#, fontsize=10)
+    plt.xticks(fontsize=10, rotation=10)
+    plt.xticks(fontsize=10)
+    plt.xlabel(labels[0], fontsize=10)
+    plt.ylabel(labels[1], fontsize=10, rotation=90)
     if labels[0] == "Entity Types":
         write_entitytypes_legend(data, ax)
     plt.savefig(path)
